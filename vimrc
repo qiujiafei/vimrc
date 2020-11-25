@@ -37,7 +37,7 @@ nmap fi :YcmCompleter FixIt<CR>
 nmap gt :YcmCompleter GoTo<CR>
 nmap gd :YcmCompleter GoToDefinition<CR>
 nmap gh :YcmCompleter GoToDeclaration<CR>
-
+let mapleader = "\<space>"
 
 
 
@@ -74,6 +74,12 @@ Plug 'tpope/vim-fugitive'
 
 " 代码提示
 Plug 'ycm-core/YouCompleteMe'
+
+" 模糊查找插件
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
@@ -108,3 +114,6 @@ let g:ycm_semantic_triggers =  {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
+
+
+let g:Lf_ShortcutF = '<C-P>'
