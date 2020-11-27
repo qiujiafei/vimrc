@@ -4,6 +4,8 @@ set number
 set wrap " 文字换行
 set encoding=UTF-8
 set backspace=2 "解决插入模式下 delete/backspace 建失效
+set undofile
+set undodir=~/.vim/undodir
 
 
 " 缩进
@@ -33,6 +35,7 @@ colorscheme gruvbox
 
 "按键映射
 map <F2> :NERDTreeToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 nmap fi :YcmCompleter FixIt<CR>
 nmap gt :YcmCompleter GoTo<CR>
 nmap gd :YcmCompleter GoToDefinition<CR>
@@ -74,15 +77,24 @@ Plug 'tpope/vim-fugitive'
 
 " 代码提示
 Plug 'ycm-core/YouCompleteMe'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 " 模糊查找插件
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+
+" 撤销历史
+Plug 'mbbill/undotree'
+"
+" 打开文件光标默认在最后一次修改位置
+Plug 'farmergreg/vim-lastplace'
+
+" vim 中英文切换
+Plug 'lyokha/vim-xkbswitch'
 call plug#end()
-
-
 
 
 " vim-airline 美化
@@ -117,3 +129,5 @@ let g:ycm_semantic_triggers =  {
 
 
 let g:Lf_ShortcutF = '<C-P>'
+
+let g:XkbSwitchEnabled = 1
