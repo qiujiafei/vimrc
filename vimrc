@@ -94,6 +94,10 @@ Plug 'farmergreg/vim-lastplace'
 
 " vim 中英文切换
 Plug 'lyokha/vim-xkbswitch'
+
+" vim 括号
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 
@@ -127,6 +131,8 @@ let g:ycm_semantic_triggers =  {
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
 
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
 
 let g:Lf_ShortcutF = '<C-P>'
 
